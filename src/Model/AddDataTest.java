@@ -13,8 +13,8 @@ public class AddDataTest {
         Data.getUsersList().put(u2.getLastName(), u2);
         u1.getUserAccounts().add(au1);
         u2.getUserAccounts().add(au2);
-        Data.getAccountsList().add(au1);
-        Data.getAccountsList().add(au2);
+        Data.getAccountsList().put(au1.getId(), au1);
+        Data.getAccountsList().put(au2.getId(), au2);
         au1.getListTransactions().add(tau1Toau2);
         Data.getTransactionsList().add(tau1Toau2);
     }

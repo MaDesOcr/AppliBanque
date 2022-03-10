@@ -2,6 +2,7 @@ package View;
 
 import Controller.LoginController;
 import Controller.MenuController;
+import Controller.TransactionController;
 import Controller.UserContoller;
 import Model.Account;
 import Model.Data;
@@ -63,14 +64,17 @@ public class View {
         System.out.println("Which account from this user ?");
         UserContoller.displayAccountFromUser(chosenUser);
         String accountTO = sc.nextLine();
+        Account aTo = Data.getAccountsList().get(accountTO);
 
         System.out.println("From which account do you want to give money ");
         UserContoller.displayAccountFromUser(Data.getConnectedUser());
         String accountFrom = sc.nextLine();
+        Account aFrom = Data.getAccountsList().get(accountFrom);
+
         System.out.println("How much ");
         String howmuch = sc.nextLine();
 
-
+        TransactionController.createAndSaveTransaction(aFrom, aTo, Double.parseDouble(howmuch));
 
     }
 }

@@ -56,4 +56,14 @@ public class User {
     public void setUserAccounts(List<Account> userAccounts) {
         this.userAccounts = userAccounts;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", userAccounts=" + userAccounts +
+                '}';
+    }
 }

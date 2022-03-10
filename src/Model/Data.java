@@ -7,7 +7,7 @@ import java.util.List;
 public class Data {
 
     static HashMap<String, User> usersList = new HashMap<>();
-    static List<Account> accountsList = new ArrayList<>();
+    static HashMap<Integer, Account> accountsList = new HashMap<>();
     static List<Transaction> transactionsList = new ArrayList<>();
     static User connectedUser = null;
 
@@ -19,11 +19,11 @@ public class Data {
         Data.usersList = usersList;
     }
 
-    public static List<Account> getAccountsList() {
+    public static HashMap<Integer, Account> getAccountsList() {
         return accountsList;
     }
 
-    public static void setAccountsList(List<Account> accountsList) {
+    public static void setAccountsList(HashMap<Integer, Account> accountsList) {
         Data.accountsList = accountsList;
     }
 
