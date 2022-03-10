@@ -1,19 +1,14 @@
 package Controller;
 
 import Model.AddDataTest;
-import View.View;
-
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String [] args){
         AddDataTest.addDataForTest();
 
+        MainMenuController.mainMenu();
 
-
-
-        View.printMainMenu();
 
 
 

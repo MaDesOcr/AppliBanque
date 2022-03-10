@@ -5,12 +5,10 @@ import Model.User;
 
 public class LoginController {
 
-
-
-    public static User checkLogin(String userName, String password){
-       if(Data.getUsersList().get(userName)!=null && Data.getUsersList().get(userName).getPassword().equals(password)){
-            return Data.getUsersList().get(userName);
+    public static void login(String userName, String password){
+        User userTemp = Data.getUsersList().get(userName);
+        if(userTemp!=null && userTemp.getPassword().equals(password)){
+            Data.setConnectedUser(userTemp);
        }
-       return null;
     }
 }
