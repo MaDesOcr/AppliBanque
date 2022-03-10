@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
@@ -9,7 +9,7 @@ public class User {
     private String lastName;
     private String password;
 
-    private List<Account> userAccounts = new ArrayList<>();
+    private HashMap<Integer, Account> userAccounts = new HashMap<>();
 
     public User(String firstName, String lastName, String password) {
         this.firstName = firstName;
@@ -17,7 +17,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String password, List<Account> userAccounts) {
+    public User(String firstName, String lastName, String password, HashMap<Integer, Account> userAccounts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -49,11 +49,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Account> getUserAccounts() {
+    public HashMap<Integer, Account> getUserAccounts() {
         return userAccounts;
     }
 
-    public void setUserAccounts(List<Account> userAccounts) {
+    public void setUserAccounts(HashMap<Integer, Account> userAccounts) {
         this.userAccounts = userAccounts;
     }
 

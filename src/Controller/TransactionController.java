@@ -12,6 +12,5 @@ public class TransactionController {
         ato.setBalance(ato.getBalance()+howMuch);
         afrom.getListTransactions().add(t);
         ato.getListTransactions().add(t);
-        Data.getTransactionsList().add(t);
     }
 }

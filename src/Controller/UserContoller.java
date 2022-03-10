@@ -15,7 +15,7 @@ public class UserContoller {
     }
 
     public static void displayAccountFromUser(User u){
-        for (Account a : u.getUserAccounts()){
+        for (Account a : u.getUserAccounts().values()){
             System.out.println(a.toString());
         }
     }

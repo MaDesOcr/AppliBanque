@@ -50,7 +50,7 @@ public class View {
     }
 
     public static void printTransactionFromConnectedUser(){
-        for (Account a: Data.getConnectedUser().getUserAccounts()) {
+        for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
             for (Transaction t : a.getListTransactions()) {
                 System.out.println(t.toString());
             }
@@ -68,12 +68,12 @@ public class View {
         System.out.println("Which account from this user ?");
         UserContoller.displayAccountFromUser(chosenUser);
         String accountTO = sc.nextLine();
-        Account aTo = Data.getAccountsList().get(Integer.parseInt(accountTO));
+        Account aTo = chosenUser.getUserAccounts().get(Integer.parseInt(accountTO));
 
         System.out.println("From which account do you want to give money ");
         UserContoller.displayAccountFromUser(Data.getConnectedUser());
         String accountFrom = sc.nextLine();
-        Account aFrom = Data.getAccountsList().get(Integer.parseInt(accountFrom));
+        Account aFrom = Data.getConnectedUser().getUserAccounts().get(Integer.parseInt(accountFrom));
 
         System.out.println("How much ");
         String howmuch = sc.nextLine();
@@ -83,8 +83,8 @@ public class View {
     }
 
     public static void printAccountFromConnectedUser() {
-        for (Account a: Data.getConnectedUser().getUserAccounts()){
-             System.out.println(a);
+        for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
+            System.out.println(a);
         }
     }
 }
