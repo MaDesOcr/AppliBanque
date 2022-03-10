@@ -1,11 +1,15 @@
 package Controller;
 
+import Dao.TransactionDao;
 import Model.Data;
 import Model.User;
 import View.MainMenuView;
 import View.TransactionView;
 
 public class MainMenuController {
+
+    TransactionController transactionController = new TransactionController();
+
 
     public static void mainMenu() {
         MainMenuView mainMenuView = new MainMenuView();

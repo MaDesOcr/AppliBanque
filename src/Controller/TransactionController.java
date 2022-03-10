@@ -1,13 +1,12 @@
 package Controller;
 
+import Dao.TransactionDao;
+import Dao.UserDao;
 import Model.Account;
 import Model.Data;
 import Model.Transaction;
 import Model.User;
-import View.MainMenuView;
 import View.TransactionView;
-
-import java.util.Scanner;
 
 public class TransactionController {
 
@@ -15,15 +14,15 @@ public class TransactionController {
         Transaction t = new Transaction("Tranfert", howMuch, afrom, ato);
         afrom.setBalance(afrom.getBalance()-howMuch);
         ato.setBalance(ato.getBalance()+howMuch);
-        afrom.getListTransactions().add(t);
-        ato.getListTransactions().add(t);
+
+        TransactionDao.saveTransation(t);
     }
 
     public static void createTransactionFromConnectedUser() {
         TransactionView transactionView = new TransactionView();
 
         transactionView.chooseUser();
-        User chosenUser = Data.getUsersList().get(transactionView.userTO);
+        User chosenUser = UserDao.getUserByLastName(transactionView.userTO);
 
         transactionView.chooseAccountToUser(chosenUser);
         Account accountTo = chosenUser.getUserAccounts().get(Integer.parseInt(transactionView.accountFrom));
@@ -33,7 +32,7 @@ public class TransactionController {
 
         transactionView.giveAmount();
 
-        TransactionController.createAndSaveTransaction(accountFrom, accountTo,
+        createAndSaveTransaction(accountFrom, accountTo,
                 Double.parseDouble(transactionView.howmuch));
 
     }

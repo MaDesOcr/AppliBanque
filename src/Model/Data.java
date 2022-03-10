@@ -1,20 +1,18 @@
 package Model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Data {
 
-    static HashMap<String, User> usersList = new HashMap<>();
+    static HashMap<String, User> usersMap = new HashMap<>();
     static User connectedUser = null;
 
-    public static HashMap<String, User> getUsersList() {
-        return usersList;
+    public static HashMap<String, User> getUsersMap() {
+        return usersMap;
     }
 
-    public static void setUsersList(HashMap<String, User> usersList) {
-        Data.usersList = usersList;
+    public static void setUsersMap(HashMap<String, User> usersMap) {
+        Data.usersMap = usersMap;
     }
 
     public static User getConnectedUser() {

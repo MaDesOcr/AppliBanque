@@ -9,8 +9,8 @@ public class AddDataTest {
         Account au2 = new Account("accountU2", 2, 20.00, true);
         Transaction tau1Toau2 = new Transaction("payment", 10, au1, au2);
 
-        Data.getUsersList().put(u1.getLastName(), u1);
-        Data.getUsersList().put(u2.getLastName(), u2);
+        Data.getUsersMap().put(u1.getLastName(), u1);
+        Data.getUsersMap().put(u2.getLastName(), u2);
         u1.getUserAccounts().put(au1.getId(), au1);
         u2.getUserAccounts().put(au2.getId(), au2);
 

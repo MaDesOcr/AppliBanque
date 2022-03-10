@@ -7,8 +7,8 @@ import Model.User;
 public class UserView {
 
     public static void displayUsers(){
-        for(String s : Data.getUsersList().keySet()){
-            System.out.println(Data.getUsersList().get(s).toString());
+        for(String s : Data.getUsersMap().keySet()){
+            System.out.println(Data.getUsersMap().get(s).toString());
         }
     }
 
