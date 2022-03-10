@@ -57,8 +57,6 @@ public class Transaction {
         return "Transaction{" +
                 "type='" + type + '\'' +
                 ", amount=" + amount +
-                ", accountDebit=" + accountDebit +
-                ", accountCredit=" + accountCredit +
                 '}';
     }
 }

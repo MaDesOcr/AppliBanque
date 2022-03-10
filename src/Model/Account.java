@@ -74,7 +74,6 @@ public class Account {
                 ", id=" + id +
                 ", balance=" + balance +
                 ", active=" + active +
-                ", listTransactions=" + listTransactions +
                 '}';
     }
 }

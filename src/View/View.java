@@ -33,14 +33,18 @@ public class View {
 
         if (Data.getConnectedUser()!= null){
             System.out.println("Welcome " + Data.getConnectedUser().getFirstName());
-            System.out.println("What do you want to do?");
-            System.out.println("1 Add an account to your profil");
-            System.out.println("2 Create a transaction");
-            System.out.println("3 View all transactions from your account");
-            System.out.println("4 Add a contact to your preferedContactList");
-            System.out.println("5 Exit");
-            String choice = sc.nextLine();
-            MenuController.handleMainMenu(choice);
+
+                while (true) {
+                    System.out.println("What do you want to do?");
+                    System.out.println("1 Add an account to your profil");
+                    System.out.println("2 Create a transaction");
+                    System.out.println("3 View all transactions from your account");
+                    System.out.println("4 Print out account");
+                    System.out.println("5 Add a contact to your preferedContactList");
+                    System.out.println("6 Exit");
+                    String choice = sc.nextLine();
+                    MenuController.handleMainMenu(choice);
+                }
         }
 
     }
@@ -64,17 +68,23 @@ public class View {
         System.out.println("Which account from this user ?");
         UserContoller.displayAccountFromUser(chosenUser);
         String accountTO = sc.nextLine();
-        Account aTo = Data.getAccountsList().get(accountTO);
+        Account aTo = Data.getAccountsList().get(Integer.parseInt(accountTO));
 
         System.out.println("From which account do you want to give money ");
         UserContoller.displayAccountFromUser(Data.getConnectedUser());
         String accountFrom = sc.nextLine();
-        Account aFrom = Data.getAccountsList().get(accountFrom);
+        Account aFrom = Data.getAccountsList().get(Integer.parseInt(accountFrom));
 
         System.out.println("How much ");
         String howmuch = sc.nextLine();
 
         TransactionController.createAndSaveTransaction(aFrom, aTo, Double.parseDouble(howmuch));
 
+    }
+
+    public static void printAccountFromConnectedUser() {
+        for (Account a: Data.getConnectedUser().getUserAccounts()){
+             System.out.println(a);
+        }
     }
 }

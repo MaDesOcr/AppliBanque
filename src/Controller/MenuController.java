@@ -10,7 +10,10 @@ public class MenuController {
     public static void handleMainMenu(String i){
         switch (i){
             case "2" : View.createTransactionFromConnectedUser();
+                break;
             case "3" : View.printTransactionFromConnectedUser();
+                break;
+            case "4" : View.printAccountFromConnectedUser();
             break;
         }
     }
