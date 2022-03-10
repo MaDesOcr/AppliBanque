@@ -3,6 +3,7 @@ package Controller;
 import Model.Data;
 import Model.User;
 import View.MainMenuView;
+import View.TransactionView;
 
 public class MainMenuController {
 
@@ -23,9 +24,9 @@ public class MainMenuController {
     }
     public static void handleMainMenu(String i){
         switch (i){
-            case "2" : MainMenuView.createTransactionFromConnectedUser();
+            case "2" : TransactionController.createTransactionFromConnectedUser();
                 break;
-            case "3" : MainMenuView.printTransactionFromConnectedUser();
+            case "3" : TransactionController.printTransactionFromConnectedUser();
                 break;
             case "4" : MainMenuView.printAccountFromConnectedUser();
                 break;

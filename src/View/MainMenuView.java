@@ -1,7 +1,5 @@
 package View;
 
-import Controller.LoginController;
-import Controller.MenuController;
 import Controller.TransactionController;
 import Controller.UserContoller;
 import Model.Account;
@@ -38,38 +36,7 @@ public class MainMenuView {
         choice = sc.nextLine();
     }
 
-    public static void printTransactionFromConnectedUser(){
-        for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
-            for (Transaction t : a.getListTransactions()) {
-                System.out.println(t.toString());
-            }
-        }
-    }
 
-
-    public static void createTransactionFromConnectedUser() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("To make a transaction, choose a which to user you want to give money ");
-        UserContoller.displayUser();
-        String userTO = sc.nextLine();
-
-        User chosenUser = Data.getUsersList().get(userTO);
-        System.out.println("Which account from this user ?");
-        UserContoller.displayAccountFromUser(chosenUser);
-        String accountTO = sc.nextLine();
-        Account aTo = chosenUser.getUserAccounts().get(Integer.parseInt(accountTO));
-
-        System.out.println("From which account do you want to give money ");
-        UserContoller.displayAccountFromUser(Data.getConnectedUser());
-        String accountFrom = sc.nextLine();
-        Account aFrom = Data.getConnectedUser().getUserAccounts().get(Integer.parseInt(accountFrom));
-
-        System.out.println("How much ");
-        String howmuch = sc.nextLine();
-
-        TransactionController.createAndSaveTransaction(aFrom, aTo, Double.parseDouble(howmuch));
-
-    }
 
     public static void printAccountFromConnectedUser() {
         for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
