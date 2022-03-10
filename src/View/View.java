@@ -2,6 +2,7 @@ package View;
 
 import Controller.LoginController;
 import Controller.MenuController;
+import Controller.UserContoller;
 import Model.Account;
 import Model.Data;
 import Model.Transaction;
@@ -46,10 +47,31 @@ public class View {
     public static void printTransactionFromConnectedUser(){
         for (Account a: Data.getConnectedUser().getUserAccounts()) {
             for (Transaction t : a.getListTransactions()) {
-                t.toString();
+                System.out.println(t.toString());
             }
         }
     }
 
 
+    public static void createTransactionFromConnectedUser() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("To make a transaction, choose a which to user you want to give money ");
+        UserContoller.displayUser();
+        String userTO = sc.nextLine();
+
+        User chosenUser = Data.getUsersList().get(userTO);
+        System.out.println("Which account from this user ?");
+        UserContoller.displayAccountFromUser(chosenUser);
+        String accountTO = sc.nextLine();
+
+        System.out.println("From which account do you want to give money ");
+        UserContoller.displayAccountFromUser(Data.getConnectedUser());
+        String accountFrom = sc.nextLine();
+        System.out.println("How much ");
+        String howmuch = sc.nextLine();
+
+
+
+
+    }
 }
