@@ -12,15 +12,15 @@ import java.util.Scanner;
 public class MainMenuView {
 
     public Scanner sc = new Scanner(System.in);
-    public String userName;
+    public String userId;
     public String password;
     public String choice;
 
 
     public void printLogin(){
         System.out.println("Welcome to our amazing banking app!");
-        System.out.println("Please login. UserName :?");
-        userName = sc.nextLine();
+        System.out.println("Please login. Id :?");
+        userId = sc.nextLine();
         System.out.println("Please login. Password :?");
         password = sc.nextLine();
     }

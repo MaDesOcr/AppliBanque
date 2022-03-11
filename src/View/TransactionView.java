@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class TransactionView {
 
     Scanner sc;
-    public String userTO;
+    public Integer userTO;
     public String accountTO;
     public String accountFrom;
     public String howmuch;
@@ -23,7 +23,7 @@ public class TransactionView {
         sc = new Scanner(System.in);
         System.out.println("To make a transaction, choose a which to user you want to give money ");
         UserContoller.displayUser();
-        userTO = sc.nextLine();
+        userTO = Integer.parseInt(sc.nextLine());
     }
 
     public void chooseAccountFromUser(User connectedUser){

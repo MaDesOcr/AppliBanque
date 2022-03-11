@@ -15,7 +15,7 @@ public class MainMenuController {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.printLogin();
 
-        LoginController.login(mainMenuView.userName, mainMenuView.password);
+        LoginController.login(mainMenuView.userId, mainMenuView.password);
 
         if (Data.getConnectedUser()!= null){
             mainMenuView.printWelcome();

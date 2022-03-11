@@ -14,4 +14,8 @@ public class UserDao {
     public static User getUserByLastName(String lastName){
         return Data.getUsersMap().get(lastName);
     }
+
+    public static User getUserById(Integer userTO) {
+        return Data.getUsersMap().get(userTO);
+    }
 }
