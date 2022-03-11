@@ -6,12 +6,14 @@ import View.UserView;
 
 public class UserContoller {
 
-    public static void displayUser(){
-        UserView.displayUsers(UserDao.getUsers());
+    UserView userView = new UserView();
+
+    public void displayUser(){
+        userView.displayUsers(UserDao.getUsers());
     }
 
-    public static void displayAccountFromUser(User u){
-        UserView.displayAccountFromUser(u);
+    public void displayAccountFromUser(User u){
+        userView.displayAccountFromUser(u);
     }
 
 

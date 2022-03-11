@@ -10,17 +10,19 @@ import View.UserView;
 
 public class MainMenuController {
 
+    LoginController loginController = new LoginController();
     TransactionController transactionController = new TransactionController();
+    AccountController accountController = new AccountController();
+    MainMenuView mainMenuView = new MainMenuView();
+    UserView userView = new UserView();
 
-
-    public static void mainMenu() {
-        MainMenuView mainMenuView = new MainMenuView();
+    public void mainMenu() {
         mainMenuView.printLogin();
 
-        LoginController.login(mainMenuView.userId, mainMenuView.password);
+        loginController.login(mainMenuView.userId, mainMenuView.password);
 
         if (Data.getConnectedUser()!= null){
-            mainMenuView.printWelcome();
+            mainMenuView.printWelcome(UserDao.getConnectedUser());
             while (true) {
                 mainMenuView.printMainMenu();
 
@@ -28,14 +30,15 @@ public class MainMenuController {
             }
         }
     }
-    public static void handleMainMenu(String i){
-        UserView userView = new UserView();
+    public void handleMainMenu(String i){
         switch (i){
-            case "2" : TransactionController.createTransactionFromConnectedUser();
+            case "1" : accountController.createAndAddAccountToConnectedUser();
                 break;
-            case "3" : TransactionController.printTransactionFromConnectedUser();
+            case "2" : transactionController.createTransactionFromConnectedUser();
                 break;
-            case "4" : MainMenuView.printAccountFromConnectedUser();
+            case "3" : transactionController.printTransactionFromConnectedUser();
+                break;
+            case "4" : mainMenuView.printAccountFromConnectedUser(UserDao.getConnectedUser());
                 break;
             case "5" : userView.addUserToFriendList(UserDao.getUsers(), UserDao.getConnectedUser());
                         Integer id = Integer.parseInt(userView.idSelectedUser);

@@ -9,8 +9,18 @@ public class Account {
     private int id;
     private Double balance;
     private boolean active;
+    private User user;
+
+    static int lastInt = 1;
 
     private List<Transaction> listTransactions = new ArrayList<>();
+
+    public Account(String name, Double balance, boolean active) {
+        this.id = lastInt++;
+        this.name = name;
+        this.balance = balance;
+        this.active = active;
+    }
 
     public Account(String name, int id, Double balance, boolean active) {
         this.name = name;
@@ -65,6 +75,14 @@ public class Account {
 
     public void setListTransactions(List<Transaction> listTransactions) {
         this.listTransactions = listTransactions;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

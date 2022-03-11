@@ -38,14 +38,13 @@ public class MainMenuView {
     }
 
 
-
-    public static void printAccountFromConnectedUser() {
-        for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
+    public void printAccountFromConnectedUser(User connectedUser) {
+        for (Account a: connectedUser.getUserAccounts().values()) {
             System.out.println(a);
         }
     }
 
-    public void printWelcome() {
-        System.out.println("Welcome " + Data.getConnectedUser().getFirstName());
+    public void printWelcome(User connectedUser) {
+        System.out.println("Welcome " + connectedUser.getFirstName());
     }
 }

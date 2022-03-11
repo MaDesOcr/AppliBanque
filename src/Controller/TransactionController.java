@@ -9,8 +9,9 @@ import Model.User;
 import View.TransactionView;
 
 public class TransactionController {
+    TransactionView transactionView = new TransactionView();
 
-    public static void createAndSaveTransaction(Account afrom, Account ato, double howMuch){
+    public void createAndSaveTransaction(Account afrom, Account ato, double howMuch){
         Transaction t = new Transaction("Tranfert", howMuch, afrom, ato);
         afrom.setBalance(afrom.getBalance()-howMuch);
         ato.setBalance(ato.getBalance()+howMuch);
@@ -18,8 +19,7 @@ public class TransactionController {
         TransactionDao.saveTransation(t);
     }
 
-    public static void createTransactionFromConnectedUser() {
-        TransactionView transactionView = new TransactionView();
+    public void createTransactionFromConnectedUser() {
 
         transactionView.chooseUser(UserDao.getUsers());
        // User chosenUser = UserDao.getUserByLastName(transactionView.userTO);
@@ -29,7 +29,7 @@ public class TransactionController {
         Account accountTo = chosenUser.getUserAccounts().get(Integer.parseInt(transactionView.accountFrom));
 
         transactionView.chooseAccountFromUser(Data.getConnectedUser());
-        Account accountFrom = Data.getConnectedUser().getUserAccounts().get(Integer.parseInt(transactionView.accountTO));
+        Account accountFrom = UserDao.getConnectedUser().getUserAccounts().get(Integer.parseInt(transactionView.accountTO));
 
         transactionView.giveAmount();
 
@@ -39,7 +39,7 @@ public class TransactionController {
     }
 
     public static void printTransactionFromConnectedUser(){
-        for (Account a: Data.getConnectedUser().getUserAccounts().values()) {
+        for (Account a: UserDao.getConnectedUser().getUserAccounts().values()) {
             for (Transaction t : a.getListTransactions()) {
                 System.out.println(t.toString());
             }
