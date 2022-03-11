@@ -8,4 +8,10 @@ public class TransactionDao {
         t.getAccountDebit().getListTransactions().add(t);
         t.getAccountCredit().getListTransactions().add(t);
     }
+
+    public void saveDeposit(Transaction t){
+        t.getAccountCredit().getListTransactions().add(t);
+    }
+
+
 }

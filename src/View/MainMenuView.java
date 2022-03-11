@@ -25,7 +25,7 @@ public class MainMenuView {
         password = sc.nextLine();
     }
 
-    public void printMainMenu() {
+    public void printMainMenu(User connectedUser) {
         System.out.println("What do you want to do?");
         System.out.println("1 Add an account to your profil");
         System.out.println("2 Create a transaction");
@@ -35,7 +35,9 @@ public class MainMenuView {
         System.out.println("6 Print connected User Info");
         System.out.println("7 Disconnect");
         System.out.println("8 Exit");
-
+        if(connectedUser.getRole().equals("admin")) {
+            System.out.println("9 Admin - deposit money on accout");
+        }
         choice = sc.nextLine();
     }
 

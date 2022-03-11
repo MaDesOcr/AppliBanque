@@ -51,4 +51,28 @@ public class TransactionController {
             }
         }
     }
+
+    public void makeDeposit() {
+
+        transactionView.chooseUser(userDao.getUsers());
+        try {
+            User chosenUser = userDao.getUserById(Integer.parseInt(transactionView.userTO));
+            transactionView.chooseAccountToUser(chosenUser);
+            Account accountTo = chosenUser.getUserAccounts().get(Integer.parseInt(transactionView.accountFrom));
+
+            transactionView.giveAmount();
+
+            createAndSaveDeposit(accountTo, Double.parseDouble(transactionView.howmuch));
+        }
+        catch (NumberFormatException n){
+
+        }
+    }
+
+
+    public void createAndSaveDeposit(Account ato, double howMuch){
+        Transaction t = new Transaction("Deposit", howMuch, null, ato);
+        ato.setBalance(ato.getBalance()+howMuch);
+        transactionDao.saveDeposit(t);
+    }
 }

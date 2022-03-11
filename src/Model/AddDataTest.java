@@ -12,6 +12,7 @@ public class AddDataTest {
 
         Data.getUsersMap().put(u1.getId(), u1);
         Data.getUsersMap().put(u2.getId(), u2);
+        Data.getUsersMap().put(u3.getId(), u3);
         u1.getUserAccounts().put(au1.getId(), au1);
         u2.getUserAccounts().put(au2.getId(), au2);
 

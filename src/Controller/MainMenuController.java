@@ -33,7 +33,7 @@ public class MainMenuController {
             if (userDao.getConnectedUser() != null) {
                 mainMenuView.printWelcome(userDao.getConnectedUser());
                 while (userDao.getConnectedUser() != null) {
-                    mainMenuView.printMainMenu();
+                    mainMenuView.printMainMenu(userDao.getConnectedUser());
 
                     handleMainMenu(mainMenuView.choice);
                 }
@@ -61,6 +61,11 @@ public class MainMenuController {
                 appliOn = false;
                 mainMenuView.goodbye();
                 userDao.disconnectUser();
+                break;
+            case "9" :
+                if (userDao.getConnectedUser().getRole().equals("admin")){
+                    transactionController.makeDeposit();
+                }
                 break;
             default :
                 mainMenuView.inputError();
