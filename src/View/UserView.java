@@ -24,13 +24,20 @@ public class UserView {
     }
 
     public void addUserToFriendList(HashMap<Integer, User> usersMap, User connectedUser) {
+        boolean choiceOn = false;
         for (User u : usersMap.values() ) {
-            if(!u.equals(connectedUser)){
+            if(!u.equals(connectedUser) && !connectedUser.getFriendMap().values().contains(u)){
+                choiceOn = true;
                 System.out.println(u);
             }
         }
-        sc = new Scanner(System.in);
-        idSelectedUser = sc.nextLine();
+        if(choiceOn) {
+            sc = new Scanner(System.in);
+            idSelectedUser = sc.nextLine();
+        }
+        else{
+            System.out.println("Noone to add");
+        }
     }
 
     public void printConnectedUser(User connectedUser) {

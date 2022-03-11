@@ -18,5 +18,14 @@ public class UserContoller {
     }
 
 
+    public void handleAddUserToFriendList() {
+        try{
+            userView.addUserToFriendList(userDao.getUsers(), userDao.getConnectedUser());
+            Integer id = Integer.parseInt(userView.idSelectedUser);
+            userDao.getFriendMapFromUser().put(id, userDao.getUserById(id));
+        }
+        catch (NumberFormatException n){
 
+        }
+    }
 }

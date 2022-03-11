@@ -33,7 +33,9 @@ public class MainMenuView {
         System.out.println("4 Print out account");
         System.out.println("5 Add a contact to your preferedContactList");
         System.out.println("6 Print connected User Info");
-        System.out.println("7 Exit");
+        System.out.println("7 Disconnect");
+        System.out.println("8 Exit");
+
         choice = sc.nextLine();
     }
 
@@ -46,5 +48,13 @@ public class MainMenuView {
 
     public void printWelcome(User connectedUser) {
         System.out.println("Welcome " + connectedUser.getFirstName());
+    }
+
+    public void goodbye() {
+        System.out.println("Goodbye!");
+    }
+
+    public void inputError() {
+        System.out.println("Erreur de saisie");
     }
 }

@@ -29,6 +29,10 @@ public class UserDao {
     public HashMap<Integer, User> getFriendMapFromUser() {
         return Data.getConnectedUser().getFriendMap();
     }
+
+    public void disconnectUser() {
+        Data.setConnectedUser(null);
+    }
 }
 
 

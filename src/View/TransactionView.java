@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class TransactionView {
 
     Scanner sc;
-    public Integer userTO;
+    public String userTO;
     public String accountTO;
     public String accountFrom;
     public String howmuch;
@@ -26,7 +26,7 @@ public class TransactionView {
         for (User u : usersMap.values()){
             System.out.println(u);
         }
-        userTO = Integer.parseInt(sc.nextLine());
+        userTO = sc.nextLine();
     }
 
     public void chooseAccountFromUser(User connectedUser){

@@ -11,25 +11,27 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
+    private String role;
 
     private HashMap<Integer, Account> userAccounts = new HashMap<>();
 
     private HashMap<Integer, User> friendMap = new HashMap<>();
 
-    public User(String firstName, String lastName, String password) {
+    public User(String firstName, String lastName, String password, String role) {
         this.id = lastInt++;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.role = role;
     }
 
-    public User(String firstName, String lastName, String password, HashMap<Integer, Account> userAccounts) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.userAccounts = userAccounts;
+    public String getRole() {
+        return role;
     }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -95,7 +97,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", userAccounts=" + userAccounts +
-                ", friendMap=" + friendMap +
+                ", friendMap size =" + friendMap.size() +
                 '}';
     }
 }

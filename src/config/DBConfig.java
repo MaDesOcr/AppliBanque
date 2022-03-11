@@ -7,7 +7,8 @@ public class DBConfig {
 
 
     public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        //Class.forName("com.mysql.cj.jdbc.Driver");
+        DriverManager.getDriver("D:\\Cours\\Ynov\\mysql-connector-java-8.0.28");
         return DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/prod","root","rootroot");
     }

@@ -24,18 +24,23 @@ public class TransactionController {
     public void createTransactionFromConnectedUser() {
 
         transactionView.chooseUser(userDao.getUsers());
-        User chosenUser = userDao.getUserById(transactionView.userTO);
+        try {
+            User chosenUser = userDao.getUserById(Integer.parseInt(transactionView.userTO));
+            transactionView.chooseAccountToUser(chosenUser);
+            Account accountTo = chosenUser.getUserAccounts().get(Integer.parseInt(transactionView.accountFrom));
 
-        transactionView.chooseAccountToUser(chosenUser);
-        Account accountTo = chosenUser.getUserAccounts().get(Integer.parseInt(transactionView.accountFrom));
+            transactionView.chooseAccountFromUser(Data.getConnectedUser());
+            Account accountFrom = userDao.getConnectedUser().getUserAccounts().get(Integer.parseInt(transactionView.accountTO));
 
-        transactionView.chooseAccountFromUser(Data.getConnectedUser());
-        Account accountFrom = userDao.getConnectedUser().getUserAccounts().get(Integer.parseInt(transactionView.accountTO));
+            transactionView.giveAmount();
 
-        transactionView.giveAmount();
+            createAndSaveTransaction(accountFrom, accountTo,
+                    Double.parseDouble(transactionView.howmuch));
+        }
+        catch (NumberFormatException n){
 
-        createAndSaveTransaction(accountFrom, accountTo,
-                Double.parseDouble(transactionView.howmuch));
+        }
+
 
     }
 
