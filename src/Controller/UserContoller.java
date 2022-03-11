@@ -12,4 +12,6 @@ public class UserContoller {
     public static void displayAccountFromUser(User u){
         UserView.displayAccountFromUser(u);
     }
+
+
 }

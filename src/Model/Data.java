@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 public class Data {
 
-    static HashMap<String, User> usersMap = new HashMap<>();
+    static HashMap<Integer, User> usersMap = new HashMap<>();
     static User connectedUser = null;
 
-    public static HashMap<String, User> getUsersMap() {
+    public static HashMap<Integer, User> getUsersMap() {
         return usersMap;
     }
 
-    public static void setUsersMap(HashMap<String, User> usersMap) {
+    public static void setUsersMap(HashMap<Integer, User> usersMap) {
         Data.usersMap = usersMap;
     }
 
