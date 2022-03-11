@@ -12,9 +12,9 @@ public class UserDao {
         return Data.getUsersMap();
     }
 
-    public User getUserByLastName(String lastName){
+    /*public User getUserByLastName(String lastName){
         return Data.getUsersMap().get(lastName);
-    }
+    }*/
 
     public User getUserById(Integer userTO) {
         return Data.getUsersMap().get(userTO);
