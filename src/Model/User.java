@@ -94,6 +94,8 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
+                ", userAccounts=" + userAccounts +
+                ", friendMap=" + friendMap +
                 '}';
     }
 }

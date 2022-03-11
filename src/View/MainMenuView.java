@@ -32,7 +32,8 @@ public class MainMenuView {
         System.out.println("3 View all transactions from your account");
         System.out.println("4 Print out account");
         System.out.println("5 Add a contact to your preferedContactList");
-        System.out.println("6 Exit");
+        System.out.println("6 Print connected User Info");
+        System.out.println("7 Exit");
         choice = sc.nextLine();
     }
 

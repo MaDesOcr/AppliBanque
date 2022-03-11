@@ -1,7 +1,6 @@
 package View;
 
 import Model.Account;
-import Model.Data;
 import Model.User;
 
 import java.util.HashMap;
@@ -33,5 +32,9 @@ public class UserView {
         idSelectedUser = sc.nextLine();
 
 
+    }
+
+    public void printConnectedUser(User connectedUser) {
+        System.out.println(connectedUser);
     }
 }

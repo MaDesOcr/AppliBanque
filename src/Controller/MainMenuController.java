@@ -40,6 +40,10 @@ public class MainMenuController {
             case "5" : userView.addUserToFriendList(UserDao.getUsers(), UserDao.getConnectedUser());
                         Integer id = Integer.parseInt(userView.idSelectedUser);
                         Dao.UserDao.getFriendMapFromUser().put(id, Dao.UserDao.getUserById(id));
+                break;
+            case "6" : userView.printConnectedUser(Dao.UserDao.getConnectedUser());
+                break;
+
         }
     }
 }
