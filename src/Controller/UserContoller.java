@@ -7,9 +7,10 @@ import View.UserView;
 public class UserContoller {
 
     UserView userView = new UserView();
+    UserDao userDao = new UserDao();
 
     public void displayUser(){
-        userView.displayUsers(UserDao.getUsers());
+        userView.displayUsers(userDao.getUsers());
     }
 
     public void displayAccountFromUser(User u){

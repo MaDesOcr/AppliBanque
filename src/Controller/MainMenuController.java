@@ -15,6 +15,7 @@ public class MainMenuController {
     AccountController accountController = new AccountController();
     MainMenuView mainMenuView = new MainMenuView();
     UserView userView = new UserView();
+    UserDao userDao = new UserDao();
 
     public void mainMenu() {
         mainMenuView.printLogin();
@@ -22,7 +23,7 @@ public class MainMenuController {
         loginController.login(mainMenuView.userId, mainMenuView.password);
 
         if (Data.getConnectedUser()!= null){
-            mainMenuView.printWelcome(UserDao.getConnectedUser());
+            mainMenuView.printWelcome(userDao.getConnectedUser());
             while (true) {
                 mainMenuView.printMainMenu();
 
@@ -38,13 +39,13 @@ public class MainMenuController {
                 break;
             case "3" : transactionController.printTransactionFromConnectedUser();
                 break;
-            case "4" : mainMenuView.printAccountFromConnectedUser(UserDao.getConnectedUser());
+            case "4" : mainMenuView.printAccountFromConnectedUser(userDao.getConnectedUser());
                 break;
-            case "5" : userView.addUserToFriendList(UserDao.getUsers(), UserDao.getConnectedUser());
+            case "5" : userView.addUserToFriendList(userDao.getUsers(), userDao.getConnectedUser());
                         Integer id = Integer.parseInt(userView.idSelectedUser);
-                        Dao.UserDao.getFriendMapFromUser().put(id, Dao.UserDao.getUserById(id));
+                        userDao.getFriendMapFromUser().put(id, userDao.getUserById(id));
                 break;
-            case "6" : userView.printConnectedUser(Dao.UserDao.getConnectedUser());
+            case "6" : userView.printConnectedUser(userDao.getConnectedUser());
                 break;
 
         }

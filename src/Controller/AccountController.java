@@ -9,9 +9,10 @@ public class AccountController {
 
     AccountView accountView = new AccountView();
     AccountDao accountDao = new AccountDao();
+    UserDao userDao = new UserDao();
 
     public void createAndAddAccountToConnectedUser() {
-        accountView.createAndAddAccountToConnectedUser(Dao.UserDao.getConnectedUser());
+        accountView.createAndAddAccountToConnectedUser(userDao.getConnectedUser());
 
         String name = accountView.name;
         Double balance = 0.00;
@@ -19,7 +20,7 @@ public class AccountController {
 
         Account newacount = new Account(name, balance, actif);
 
-        UserDao.getConnectedUser().getUserAccounts();
+        userDao.getConnectedUser().getUserAccounts();
         accountDao.saveAccount(newacount);
     }
 }
