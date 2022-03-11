@@ -21,7 +21,7 @@ public class TransactionController {
     public static void createTransactionFromConnectedUser() {
         TransactionView transactionView = new TransactionView();
 
-        transactionView.chooseUser();
+        transactionView.chooseUser(UserDao.getUsers());
        // User chosenUser = UserDao.getUserByLastName(transactionView.userTO);
         User chosenUser = UserDao.getUserById(transactionView.userTO);
 

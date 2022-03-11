@@ -4,6 +4,7 @@ import Model.Data;
 import Model.User;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class UserDao {
 
@@ -17,5 +18,13 @@ public class UserDao {
 
     public static User getUserById(Integer userTO) {
         return Data.getUsersMap().get(userTO);
+    }
+
+    public static User getConnectedUser(){
+        return Data.getConnectedUser();
+    }
+
+    public static HashMap<Integer, User> getFriendMapFromUser() {
+        return Data.getConnectedUser().getFriendMap();
     }
 }

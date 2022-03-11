@@ -1,10 +1,12 @@
 package Controller;
 
 import Dao.TransactionDao;
+import Dao.UserDao;
 import Model.Data;
 import Model.User;
 import View.MainMenuView;
 import View.TransactionView;
+import View.UserView;
 
 public class MainMenuController {
 
@@ -27,6 +29,7 @@ public class MainMenuController {
         }
     }
     public static void handleMainMenu(String i){
+        UserView userView = new UserView();
         switch (i){
             case "2" : TransactionController.createTransactionFromConnectedUser();
                 break;
@@ -34,6 +37,9 @@ public class MainMenuController {
                 break;
             case "4" : MainMenuView.printAccountFromConnectedUser();
                 break;
+            case "5" : userView.addUserToFriendList(UserDao.getUsers(), UserDao.getConnectedUser());
+                        Integer id = Integer.parseInt(userView.idSelectedUser);
+                        Dao.UserDao.getFriendMapFromUser().put(id, Dao.UserDao.getUserById(id));
         }
     }
 }
