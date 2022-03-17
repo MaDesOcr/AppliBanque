@@ -5,12 +5,10 @@ import java.sql.*;
 
 public class DBConfig {
 
-
     public Connection getConnection() throws ClassNotFoundException, SQLException {
-        //Class.forName("com.mysql.cj.jdbc.Driver");
-        DriverManager.getDriver("D:\\Cours\\Ynov\\mysql-connector-java-8.0.28");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/prod","root","rootroot");
+                "jdbc:mysql://localhost:3306/bank","root","rootroot");
     }
 
     public void closeConnection(Connection con){

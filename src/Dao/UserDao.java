@@ -4,6 +4,9 @@ import Model.Data;
 import Model.User;
 import config.DBConfig;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 
 public class UserDao {
@@ -17,9 +20,34 @@ public class UserDao {
         return Data.getUsersMap().get(lastName);
     }*/
 
-    public User getUserById(Integer userTO) {
+    public User getUserById(Integer userID) {
+        DBConfig dbConfig = new DBConfig();
+        Connection con = null;
+        String firstName = null, lastName = null , password = null;
+        try {
+            con = dbConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement("Select * from User where id = ?;");
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                firstName = rs.getString("firstname");
+                lastName = rs.getString("lastname");
+                password = rs.getString("password");
+                //System.out.println(result);
+            }
+            System.out.println(firstName + " " + lastName + " " + " " + password + ".");
+            dbConfig.closeResultSet(rs);
+            dbConfig.closePreparedStatement(ps);
+        }catch (Exception ex){
+            System.out.println("Error");
 
-        return Data.getUsersMap().get(userTO);
+        }finally {
+            dbConfig.closeConnection(con);
+        }
+
+
+
+
+        return null;
     }
 
     public User getConnectedUser(){
